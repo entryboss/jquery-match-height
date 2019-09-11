@@ -1,5 +1,5 @@
 /**
-* jquery-match-height 0.7.2ru1 by @liabru
+* jquery-match-height 0.7.2-ru1 by @liabru
 * http://brm.io/jquery-match-height/
 * License: MIT
 */
@@ -280,7 +280,7 @@
                     verticalPadding += _parse($that.css('padding-top')) + _parse($that.css('padding-bottom'));
                 }
 
-                propertyHeight = (targetHeight - verticalPadding);
+                propertyHeight = targetHeight - verticalPadding;
 
                 if (opts.roundUp) {
                     propertyHeight = Math.ceil(propertyHeight);

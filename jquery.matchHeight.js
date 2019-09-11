@@ -280,7 +280,7 @@
                     verticalPadding += _parse($that.css('padding-top')) + _parse($that.css('padding-bottom'));
                 }
 
-                propertyHeight = (targetHeight - verticalPadding);
+                propertyHeight = targetHeight - verticalPadding;
 
                 if (opts.roundUp) {
                     propertyHeight = Math.ceil(propertyHeight);
