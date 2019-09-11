@@ -81,6 +81,7 @@
         var opts = {
             byRow: true,
             property: 'height',
+            roundUp: false,
             target: null,
             remove: false
         };
@@ -265,7 +266,8 @@
             // iterate the row and apply the height to all elements
             $row.each(function(){
                 var $that = $(this),
-                    verticalPadding = 0;
+                    verticalPadding = 0,
+                    propertyHeight;
 
                 // don't apply to a target
                 if (opts.target && $that.is(opts.target)) {
@@ -278,8 +280,14 @@
                     verticalPadding += _parse($that.css('padding-top')) + _parse($that.css('padding-bottom'));
                 }
 
+                propertyHeight = targetHeight - verticalPadding;
+
+                if (opts.roundUp) {
+                    propertyHeight = Math.ceil(propertyHeight);
+                }
+
                 // set the height (accounting for padding and border)
-                $that.css(opts.property, (targetHeight - verticalPadding) + 'px');
+                $that.css(opts.property, propertyHeight + 'px');
             });
         });
 
